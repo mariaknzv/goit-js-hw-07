@@ -20,12 +20,13 @@ function createMarkup(arr) {
         .join('');
 }
 
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+})
+
 function handleClick(event) {
     event.preventDefault();
 
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-    })
     lightbox.open();
 }

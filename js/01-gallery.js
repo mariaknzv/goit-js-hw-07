@@ -34,9 +34,11 @@ function handleClick(event) {
   const originalImgSrc = event.target.dataset.source;
   const imgAlt = event.target.alt;
 
-  const instance = basicLightbox.create(`
-        <img src="${originalImgSrc}" alt="${imgAlt}" />
-        `);
+  const instance = createLightboxInstance(originalImgSrc, imgAlt);
+
+  // const instance = basicLightbox.create(`
+  //       <img src="${originalImgSrc}" alt="${imgAlt}" />
+  //       `);
 
   instance.show();
   window.addEventListener('keydown', escKeyPress);
@@ -46,10 +48,9 @@ function handleClick(event) {
       instance.close();
       window.removeEventListener('keydown', escKeyPress);
     }
-
-
   }
-
-
 }
 
+function createLightboxInstance(src, alt) {
+  return basicLightbox.create(`<img src="${src}" alt="${alt}" />`);
+}
